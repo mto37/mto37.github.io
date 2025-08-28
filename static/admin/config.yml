@@ -2,7 +2,7 @@
 backend:
   name: git-gateway
   repo: mto37/mto37.github.io
-  branch: main
+  branch: master
   identity_url: https://auth.decapbridge.com/sites/af0d75ec-b928-41df-9257-3fd85da11a84
   gateway_url: https://gateway.decapbridge.com
 
