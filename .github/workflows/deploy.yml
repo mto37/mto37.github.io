@@ -1,32 +1,57 @@
-# .github/workflows/gh-pages.yml
-name: Deploy to GitHub Pages
+name: Deploy Hugo site to Pages
 
 on:
   push:
     branches:
-      - master  # 当 main 分支有 push 时触发
+      - master # 监视 main 分支
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.121.1 # Hugo 版本
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true  # 获取主题 submodule
-          fetch-depth: 0    # 获取所有 history
+          submodules: true # PaperMod 模板需要这个
+          fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "${{ env.HUGO_VERSION }}"
           extended: true
 
-      - name: Build
-        run: hugo --minify # 运行 hugo 构建命令
+      - name: Build with Hugo
+        run: hugo --gc --minify
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public # Hugo 生成的静态文件目录
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
