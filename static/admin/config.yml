@@ -1,8 +1,7 @@
-# Use DecapBridge auth (required)
 backend:
   name: git-gateway
-  repo: mto37/mto37.github.io
-  branch: master
+  repo: mto37/mto37.github.io # 替换为您的 GitHub 仓库
+  branch: master # 指定 Decap CMS 提交内容的分支
   identity_url: https://auth.decapbridge.com/sites/af0d75ec-b928-41df-9257-3fd85da11a84
   gateway_url: https://gateway.decapbridge.com
 
@@ -15,32 +14,24 @@ backend:
     deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
     openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
 
+media_folder: "static/images/uploads" # 指定媒体文件上传的路径
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog" # 集合的名称
+    label: "Blog" # 在 CMS 界面中显示的标签
+    folder: "content/posts" # Hugo 博文所在的文件夹
+    create: true # 允许在 CMS 中创建新文件
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 文件名的格式
+    fields: # 定义内容字段
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+# Use DecapBridge auth (required)
+
 # Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in DecapCMS (optional)
 site_url: https://mto37.github.io
-
-
-# 媒体库配置 (解决了 media_library 缺失的错误)
-media_library:
-  name: image # 使用内置的图片媒体库
-  config:
-    public_path: /images # Hugo处理后，图片可通过 /images 访问
-
-# 媒体文件配置 (解决了 media_folder 缺失的错误)
-media_folder: "static/images" # ❗️上传的图片将保存到这个文件夹
-public_folder: "/images" # ❗️在 CMS 预览中显示的图片路径
-
-# 内容集合配置 (解决了 collections 缺失的错误)
-collections:
-  - name: "blog" # 集合的唯一标识符
-    label: "博客" # 在 CMS 界面左侧导航栏显示的名称
-    folder: "content/posts" # ❗️此集合的内容文件存储在 Hugo 项目的这个文件夹中
-    create: true # 允许通过 CMS 创建新的博文
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 新文章的文件名格式
-    fields: # 定义此集合内容的字段
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "发布日期", name: "date", widget: "datetime"}
-      - {label: "草稿", name: "draft", widget: "boolean", default: true}
-      - {label: "正文", name: "body", widget: "markdown"}
