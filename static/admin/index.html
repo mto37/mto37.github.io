@@ -1,13 +1,18 @@
+
 <!doctype html>
 <html>
 <head>
-  
-  <meta name="decap-cms-github-oauth-client-id" content="Ov23liryuCUUDP5NkVcO">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 你可能还会有 decap-cms-github-oauth-client-id 的 meta 标签 -->
+  <meta name="decap-cms-github-oauth-client-id" content="Ov23liryuCUUDP5NkVcO">
   <title>Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
+  <!-- 
+    Decap CMS (前 Netlify CMS) 需要一个地方来注入它的应用。
+    虽然新版本通常能自动附加到 body，但显式提供一个容器是更稳妥的做法。
+  -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
