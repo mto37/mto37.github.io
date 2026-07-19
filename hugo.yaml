@@ -1,5 +1,6 @@
 baseURL: "https://mto37.github.io/"
-languageCode: "zh-CN"
+languageCode: "en-US"
+defaultContentLanguage: "en"
 title: "mto37"
 
 module:
@@ -21,8 +22,8 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   homeInfoParams:
-    Title: "你好，欢迎来到我的博客"
-    Content: "记录思考、阅读与生活。"
+    Title: "Hello, welcome to my blog"
+    Content: "Notes on ideas, books, and life."
   socialIcons:
     - name: github
       url: "https://github.com/mto37"
@@ -30,11 +31,11 @@ params:
 menu:
   main:
     - identifier: archives
-      name: 归档
+      name: Archives
       url: /archives/
       weight: 10
     - identifier: tags
-      name: 标签
+      name: Tags
       url: /tags/
       weight: 20
 
