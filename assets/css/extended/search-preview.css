@@ -1,0 +1,17 @@
+#searchResults .search-result {
+  position: relative;
+  padding: 0.9rem 1rem;
+}
+
+#searchResults .search-result-title {
+  display: block;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+#searchResults .search-result-preview {
+  margin: 0.35rem 0 0;
+  color: var(--secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
