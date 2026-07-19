@@ -23,7 +23,7 @@ params:
   ShowCodeCopyButtons: true
   homeInfoParams:
     Title: "Hello, welcome to my blog"
-    Content: "Notes on ideas, books, and life."
+    Content: "Information theory enthusiast. Background in B2B marketing and software development. Exploring business philosophy and practical AI. WeChat: coderzp"
   socialIcons:
     - name: github
       url: "https://github.com/mto37"
