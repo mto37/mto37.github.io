@@ -1,11 +1,11 @@
 ---
-title: "你好，世界"
+title: "Hello, World"
 date: 2026-07-19T23:30:00+08:00
 draft: false
-tags: ["博客"]
-summary: "这是博客的第一篇文章。"
+tags: ["blog"]
+summary: "The first post on my blog."
 ---
 
-这是我的第一篇博客文章。
+This is the first post on my blog.
 
-以后只需在 content/posts/ 新建 Markdown 文件，提交到 GitHub，网站就会自动发布。
+Create a Markdown file in content/posts/, then commit it to GitHub. The site will publish automatically.
