@@ -1,7 +1,6 @@
 baseURL: "https://mto37.github.io/"
 languageCode: "zh-CN"
 title: "mto37"
-theme: "PaperMod"
 
 module:
   imports:
@@ -38,10 +37,6 @@ menu:
       name: 标签
       url: /tags/
       weight: 20
-    - identifier: search
-      name: 搜索
-      url: /search/
-      weight: 30
 
 outputs:
   home:
