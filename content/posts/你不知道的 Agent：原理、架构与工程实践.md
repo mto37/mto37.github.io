@@ -2,7 +2,7 @@
 title: "你不知道的 Agent：原理、架构与工程实践"
 date: 2026-08-5T23:30:00+08:00
 draft: false
-tags: ["harness",“AI”,“agent”,"test"]
+tags: ["harness",“AI”,“agent”,"test1"]
 summary: "转载自：https://x.com/HiTw93/status/2034627967926825175  "
 ---
 
